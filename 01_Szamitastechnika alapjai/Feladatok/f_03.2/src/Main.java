@@ -11,21 +11,24 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Add meg a két számot: ");
-        int iNum1 = sc.nextInt();
-        int iNum2 = sc.nextInt();
+        System.out.println("Adj meg két számot: ");
+        double dNum1 = sc.nextInt();
+        double dNum2 = sc.nextInt();
         sc.nextLine();
 
         System.out.println("számtani középarányos kiszámítása - press 1.");
         System.out.println("mértani középarányos kiszámítása - press 2.");
-        int iSzamtani = sc.nextInt();
+        int iValasztas = sc.nextInt();
 
-        while ((iSzamtani != 1) && (iSzamtani != 2)) {
-            System.out.println("1 vagy 2?");
-            iSzamtani = sc.nextInt();
+        switch (iValasztas){
+            case 1:
+                System.out.println("A " + dNum1 + " és " + dNum2 + " számtani középarányosa: " + (dNum1 + dNum2) / 2);
+                break;
+            case 2:
+                System.out.println("A " + dNum1 + " és " + dNum2 + " mértani középarányosa: " + sqrt(dNum1 * dNum2));
+                break;
+            default:
+                System.out.println("1 vagy 2 volt a lehetséges választás. Így jártál.");
         }
-        if (iSzamtani == 1)
-            System.out.println("A " + iNum1 + " és " + iNum2 + " számtani középarányosa: " + (iNum1 + iNum2) / 2);
-        else System.out.println("A " + iNum1 + " és " + iNum2 + " mértani középarányosa: " + sqrt(iNum1 * iNum2));
     }
 }
