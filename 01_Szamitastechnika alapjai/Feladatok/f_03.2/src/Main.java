@@ -16,10 +16,15 @@ public class Main {
         int iNum2 = sc.nextInt();
         sc.nextLine();
 
-        System.out.println("A két szám számtani középarányosát szeretnéd kiszámoltatni?");
-        boolean bSzamtani = sc.nextBoolean();
+        System.out.println("számtani középarányos kiszámítása - press 1.");
+        System.out.println("mértani középarányos kiszámítása - press 2.");
+        int iSzamtani = sc.nextInt();
 
-        if (bSzamtani)
+        while ((iSzamtani != 1) && (iSzamtani != 2)) {
+            System.out.println("1 vagy 2?");
+            iSzamtani = sc.nextInt();
+        }
+        if (iSzamtani == 1)
             System.out.println("A " + iNum1 + " és " + iNum2 + " számtani középarányosa: " + (iNum1 + iNum2) / 2);
         else System.out.println("A " + iNum1 + " és " + iNum2 + " mértani középarányosa: " + sqrt(iNum1 * iNum2));
     }
