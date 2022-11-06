@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.Scanner;
 
 /*
 Írj egy programot ami véletlenszerűen egyenletesen választ egy hossz értéket 5 és 10 között (5 és
@@ -9,7 +8,6 @@ pedig kizárólag kis betűk, nagy betűk, vagy számok. Pl: hossz 7, karakterl�
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
         Random r = new Random();
         int iSzamokSzama = '9' - '0' + 1;
