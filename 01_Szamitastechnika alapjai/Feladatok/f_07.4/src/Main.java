@@ -21,12 +21,8 @@ public class Main {
     }
 
     private static boolean feltetelFeladatban(boolean a, boolean b, boolean c) {
-        /*if ((!a && !b && !c) || (a && b && !c) || (a && b && c) || (!a && b && !c) || (a && !b && !c) ||
+        if ((!a && !b && !c) || (a && b && !c) || (a && b && c) || (!a && b && !c) || (a && !b && !c) ||
                 (!a && b && c))
-            return true;
-        else
-            return false;*/
-        if ((b && c) || (b && !c) || (!b && !c))
             return true;
         else
             return false;
