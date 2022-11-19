@@ -9,25 +9,26 @@ utána a fájlokat.
 
 public class Main {
     public static void main(String[] args) {
-        Path aktualisKonyvtar = Paths.get("").toAbsolutePath().normalize();
-        File aktualisKonyvtarInfo = aktualisKonyvtar.toFile();
+        konyvtarak(Paths.get("").toAbsolutePath());
+        fajlok(Paths.get("").toAbsolutePath());
+    }
 
-        File[] informaciosTomb = aktualisKonyvtarInfo.listFiles();
-
-        System.out.println("Aktuális könyvtár:");
-        System.out.println(aktualisKonyvtar);
-
+    private static void konyvtarak(Path aktualisKonyvtar) {
+        File[] informaciosTomb = aktualisKonyvtar.toFile().listFiles();
         System.out.println("Aktuális könyvtárban levő könyvtárak:");
         for (int i = 0; i < informaciosTomb.length; i++) {
             if (informaciosTomb[i].isDirectory()) {
-                System.out.println(informaciosTomb[i]);
+                System.out.println(informaciosTomb[i].getName());
             }
         }
+    }
 
-        System.out.println("Aktuális könyvtárban levő fájlok:");
+    private static void fajlok(Path aktualisKonyvtar) {
+        File[] informaciosTomb = aktualisKonyvtar.toFile().listFiles();
+        System.out.println("Aktuális könyvtárban levő fajlok:");
         for (int i = 0; i < informaciosTomb.length; i++) {
             if (informaciosTomb[i].isFile()) {
-                System.out.println(informaciosTomb[i]);
+                System.out.println(informaciosTomb[i].getName());
             }
         }
     }
