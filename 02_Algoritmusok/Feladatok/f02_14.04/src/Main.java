@@ -5,28 +5,28 @@ algoritmust amely kiszámolja 𝑛! értékét.
 
 public class Main {
     public static void main(String[] args) {
-        int eredmeny = faktorialisSzorzat(-3);
+        int eredmeny = faktor(-3);
         System.out.println(eredmeny);
     }
 
-    private static int faktorialisSzorzat(int szam) {
+    private static int faktor(int szam) {
         if (szam == 0)
-            return 0;
+            return 1;
         if (szam > 0)
-            return faktorialisSzorzatNemNegativSzamra(szam);
+            return faktorNemNegativSzamra(szam);
         else
-            return faktorialisSzorzatNegativSzamra(szam);
+            return faktorNegativSzamra(szam);
     }
 
-    private static int faktorialisSzorzatNemNegativSzamra(int szam) {
-        if (szam == 1)
-            return szam;
-        return faktorialisSzorzatNemNegativSzamra(szam - 1) * szam;
+    private static int faktorNemNegativSzamra(int szam) {
+        if (szam == 0)
+            return 1;
+        return faktorNemNegativSzamra(szam - 1) * szam;
     }
 
-    private static int faktorialisSzorzatNegativSzamra(int szam) {
+    private static int faktorNegativSzamra(int szam) {
         if (szam == -1)
             return szam;
-        return faktorialisSzorzatNegativSzamra(szam + 1) * szam;
+        return faktorNegativSzamra(szam + 1) * szam;
     }
 }
