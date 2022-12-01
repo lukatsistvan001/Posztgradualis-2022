@@ -14,7 +14,6 @@ még egyáltalán nem biztos, hogy minden hibát kijavítottál. Tesztelj más k
 public class Main {
 
     public static void main(String[] args) {
-
         // állíts be egy tetszőleges mintakarakterláncot, amivel tesztelni szeretnél
         String s = "almaelmentaludni";
 
