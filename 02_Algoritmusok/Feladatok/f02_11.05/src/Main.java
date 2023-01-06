@@ -5,13 +5,13 @@ Majd a tömb elemei szóközzel elválasztva.
 */
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         File bemenetiAdatok = Paths.get(args[0]).toFile();
         FileReader fr = new FileReader(bemenetiAdatok);
         Scanner sc = new Scanner(bemenetiAdatok);
@@ -28,5 +28,6 @@ public class Main {
             else
                 System.out.print(tomb[i]);
         }
+        fr.close();
     }
 }
