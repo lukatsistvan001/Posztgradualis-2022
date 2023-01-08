@@ -21,13 +21,13 @@ public class Main {
 
     private static void fajlokLetrehozasa(Path aktualisKonyvtar) throws IOException {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Add meg a fájl nevét: ");
-        String ujFaljNev = sc.nextLine();
-        while (!ujFaljNev.equals("*")) {
-            Files.createFile(aktualisKonyvtar.resolve(ujFaljNev));
-            System.out.print("Add meg a fájl nevét: ");
-            ujFaljNev = sc.nextLine();
-        }
+        String ujFajlNev;
+        do {
+            System.out.print("Add meg az új fájlnevet: ");
+            ujFajlNev = sc.nextLine();
+            if (ujFajlNev.compareTo("*") != 0)
+                Files.createFile(aktualisKonyvtar.resolve(ujFajlNev));
+        } while (ujFajlNev.compareTo("*") != 0);
     }
 
     private static Path ujKonyvtarLetrehozasa(Path aktualisKonyvtar, String ujKonyvtarNev) throws IOException {
