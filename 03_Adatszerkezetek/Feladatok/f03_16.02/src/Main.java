@@ -4,30 +4,33 @@ public class Main {
         dinHalmaz halmaz2 = new dinHalmaz();
         dinHalmaz halmaz3 = new dinHalmaz();
 
-        halmaz1.elemHozzaadas("valaki");
-        halmaz1.elemHozzaadas("valamikor");
-        halmaz1.elemHozzaadas("valaminek");
-        System.out.print("A halmaz1 tartalma: ");
+        halmaz1.elemHozzaadas("1");
+        halmaz1.elemHozzaadas("2");
+        halmaz1.elemHozzaadas("3");
+        System.out.println("A halmaz1 tartalma: ");
         halmaz1.elemekKiirasa();
 
-        System.out.println();
         System.out.println("A halmaz1 számossága: " + halmaz1.szamossaga());
-        System.out.println("A halmaz1-ben benne van-e a valamikor? - " + halmaz1.tartalmazzaE("valamikor"));
-        System.out.println("A halmaz1-ből a valamikor-t sikerült-e kivenni? - " + halmaz1.elemKivetele("valamikor"));
-        System.out.println("A halmaz1 tartalmazza-e a valamikor-t? - " + halmaz1.tartalmazzaE("valamikor"));
+        System.out.println("A halmaz1-ben benne van-e a 2? - " + halmaz1.tartalmazzaE("2"));
+        System.out.println("A halmaz1-ből a valamikor-t sikerült-e kivenni? - " + halmaz1.elemKivetele("2"));
+        System.out.println("A halmaz1 tartalmazza-e a 2-t? - " + halmaz1.tartalmazzaE("2"));
         System.out.println("A halmaz1 számossága: " + halmaz1.szamossaga());
 
-        halmaz2.elemHozzaadas("valamiért");
-        halmaz2.elemHozzaadas("valakinek");
-        halmaz2.elemHozzaadas("valaki");
-        System.out.print("A halmaz2 tartalma: ");
+        halmaz2.elemHozzaadas("1");
+        halmaz2.elemHozzaadas("4");
+        halmaz2.elemHozzaadas("5");
+        System.out.println("A halmaz2 tartalma: ");
         halmaz2.elemekKiirasa();
 
-        halmaz3 = halmaz1.halmazKivonasa(halmaz2);
-        System.out.println(halmaz3.szamossaga());
+        halmaz3 = halmaz2.halmazKivonasa(halmaz1);
+        System.out.println("A halmaz3 számossága: " + halmaz3.szamossaga());
+        System.out.println("A halmaz3 tartalma: ");
+        halmaz3.elemekKiirasa();
 
         halmaz3.egyesites(halmaz1);
-        System.out.println(halmaz3.szamossaga());
+        System.out.println("A halmaz3 számossága: " + halmaz3.szamossaga());
+        System.out.println("A halmaz3 tartalma: ");
+        halmaz3.elemekKiirasa();
 
         halmaz3.metszet(halmaz2);
         System.out.println(halmaz3.szamossaga());
@@ -44,16 +47,15 @@ class dinHalmaz {
     //tagvaltozok
     private String[] taroltHalmaz;
 
+    //konstruktor
     public dinHalmaz() {
         taroltHalmaz = new String[0];
     }
 
-    public String[] elemekKiirasa() {
-        String[] ujTarolthalmaz = new String[this.taroltHalmaz.length];
-        for (int i = 0; i < taroltHalmaz.length; i++) {
-            ujTarolthalmaz[i] = this.taroltHalmaz[i];
+    public void elemekKiirasa() {
+        for (int i = 0; i < this.taroltHalmaz.length; i++) {
+            System.out.println(this.taroltHalmaz[i]);
         }
-        return ujTarolthalmaz;
     }
 
     public boolean elemHozzaadas(String elem) {
@@ -69,7 +71,7 @@ class dinHalmaz {
     }
 
     public boolean elemKivetele(String elem) {
-        if (tartalmazzaE(elem))
+        if (!tartalmazzaE(elem))
             return false;
         String[] ujTaroltHalmaz = new String[taroltHalmaz.length - 1];
         boolean megvan = false;
@@ -96,8 +98,9 @@ class dinHalmaz {
             ujhalmaz.elemHozzaadas(this.taroltHalmaz[i]);
         }
         for (int i = 0; i < kivonandoHalmaz.taroltHalmaz.length; i++) {
-            ujhalmaz.elemKivetele(ujhalmaz.taroltHalmaz[i]);
+            ujhalmaz.elemKivetele(kivonandoHalmaz.taroltHalmaz[i]);
         }
+        this.taroltHalmaz = ujhalmaz.taroltHalmaz;
         return ujhalmaz;
     }
 
@@ -109,19 +112,29 @@ class dinHalmaz {
         for (int i = 0; i < masikHalmaz.taroltHalmaz.length; i++) {
             ujhalmaz.elemHozzaadas(masikHalmaz.taroltHalmaz[i]);
         }
+        this.taroltHalmaz = ujhalmaz.taroltHalmaz;
         return ujhalmaz;
     }
 
     public dinHalmaz metszet(dinHalmaz masikHalmaz) {
         dinHalmaz ujhalmaz = new dinHalmaz();
-        for (int i = 0; i < ; i++) {
-            
-        }
+        if (this.taroltHalmaz.length < masikHalmaz.taroltHalmaz.length)
+            for (int i = 0; i < this.taroltHalmaz.length; i++) {
+                if (masikHalmaz.tartalmazzaE(this.taroltHalmaz[i]))
+                    ujhalmaz.elemHozzaadas(this.taroltHalmaz[i]);
+            }
+        else
+            for (int i = 0; i < masikHalmaz.taroltHalmaz.length; i++) {
+                if (this.tartalmazzaE(masikHalmaz.taroltHalmaz[i]))
+                    ujhalmaz.elemHozzaadas(masikHalmaz.taroltHalmaz[i]);
+            }
+        this.taroltHalmaz = ujhalmaz.taroltHalmaz;
         return ujhalmaz;
     }
 
     public void urites() {
-
+        String[] ujhalmaz = new String[0];
+        this.taroltHalmaz = ujhalmaz;
     }
 
     public boolean uresE() {
@@ -129,8 +142,8 @@ class dinHalmaz {
     }
 
     public boolean tartalmazzaE(String karakterlanc) {
-        for (int i = 0; i < taroltHalmaz.length; i++) {
-            if (taroltHalmaz[i].equals(karakterlanc))
+        for (int i = 0; i < this.taroltHalmaz.length; i++) {
+            if (this.taroltHalmaz[i].equals(karakterlanc))
                 return true;
         }
         return false;
