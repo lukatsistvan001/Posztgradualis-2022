@@ -68,7 +68,7 @@ public class Main {
                 if (tomb[j].compareTo(tomb[i]) < 0) {
                     String temp = tomb[j];
                     for (int k = j; k > i; k--) {
-                        tomb[k] = tomb[k-1];
+                        tomb[k] = tomb[k - 1];
                     }
                     tomb[i] = temp;
                 }
