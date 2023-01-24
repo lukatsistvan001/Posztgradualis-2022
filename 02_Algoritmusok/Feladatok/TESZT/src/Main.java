@@ -5,15 +5,22 @@ felhasználásával.
 
 public class Main {
     public static void main(String[] args) {
-        kiiras(4);
+        int[] v = {5, 1, 3, 2, 4};
+        sort(v);
     }
 
-    public static void kiiras(int hanyszor) {
-        if (hanyszor >= 1) {
-            System.out.println('*');
-            kiiras(hanyszor - 1);
-        } else {
-            return;
+    private static void sort(int[] v) {
+        for (int i = 0; i < v.length - 1; i++) {
+            int max = i;
+            for (int j = i + 1; j < v.length; j++) {
+                if (v[j] > v[i])
+                    max = j;
+            }
+            if (max != i) {
+                int temp = v[max];
+                v[max] = v[i];
+                v[i] = temp;
+            }
         }
     }
 }
