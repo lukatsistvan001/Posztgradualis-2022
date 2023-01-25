@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        File bemenet = Paths.get(args[0],"bemenet.txt").toFile();
+        File bemenet = Paths.get(args[0], "fajl.txt").toFile();
         FileReader fr = new FileReader(bemenet);
         Scanner sc = new Scanner(fr);
         int sor = sc.nextInt();
