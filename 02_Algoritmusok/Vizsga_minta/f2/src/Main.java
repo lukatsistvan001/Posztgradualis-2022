@@ -1,3 +1,6 @@
+import java.io.*;
+import java.nio.file.Paths;
+
 public class Main {
 
     /**
@@ -10,13 +13,18 @@ public class Main {
      */
     private static double MaxHeight = 1221;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // van egy szép kilátó 890 méteren
         double targetHeight = 890;
 
         // sétatávolság a kilátóig
         double distanceToPanorama = calculateDistanceToHeight(targetHeight);
-        System.out.println(distanceToPanorama);
+        File eredmeny = Paths.get("", "eredmeny.bin").toFile();
+        FileOutputStream fos = new FileOutputStream(eredmeny);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeDouble(distanceToPanorama);
+        oos.close();
+        fos.close();
     }
 
     /**
