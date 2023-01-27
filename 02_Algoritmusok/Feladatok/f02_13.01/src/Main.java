@@ -6,6 +6,8 @@ b. Rendezze a tömböt kiválasztásos rendezéssel.
 c. Rendezze a tömböt beszúrásos rendezéssel.
 */
 
+import com.sun.jdi.event.StepEvent;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -26,9 +28,13 @@ public class Main {
 
         //buborekosRendezes(tomb);
         //kivalasztoRendezes(tomb);
-        beszurasosRendezes(tomb);
+        //beszurasosRendezes(tomb);
+        osszefesulesesRendezes(tomb);
     }
 
+    // időkomplexitás: O(n2)
+    // tárkomplexitás: bemenet + O(1)
+    // stabil
     private static void buborekosRendezes(String[] tomb) {
         boolean voltRendezes;
         int rendezettVegHossza = 0;
@@ -46,6 +52,9 @@ public class Main {
         } while (voltRendezes);
     }
 
+    // időkomplexitás: O(n2)
+    // tárkomplexitás: bemenet + O(1)
+    // stabil
     private static void kivalasztoRendezes(String[] tomb) {
         for (int i = 0; i < tomb.length - 1; i++) {
             int legkisebbElemHelye = i;
@@ -62,6 +71,9 @@ public class Main {
         }
     }
 
+    // időkomplexitás: O(n2)
+    // tárkomplexitás: bemenet + O(1)
+    // "<"-el stabil, "<="-vel nem stabil
     private static void beszurasosRendezes(String[] tomb) {
         for (int i = 0; i < tomb.length - 1; i++) {
             for (int j = i + 1; j < tomb.length; j++) {
@@ -74,5 +86,59 @@ public class Main {
                 }
             }
         }
+    }
+
+    // időkomplexitás O(nlogn)
+    // tárhelykomplexitás O(n)
+    private static void osszefesulesesRendezes(String[] tomb) {
+        if (tomb.length <= 1)
+            return;
+        else {
+            int felezo = tomb.length / 2;
+            String[] alsoResz = new String[tomb.length / 2];
+            String[] felsoResz = new String[tomb.length - alsoResz.length];
+            for (int i = 0; i < felezo; i++) {
+                alsoResz[i] = tomb[i];
+            }
+            for (int i = felezo; i < tomb.length; i++) {
+                felsoResz[i - felezo] = tomb[i];
+            }
+            osszefesulesesRendezes(alsoResz);
+            osszefesulesesRendezes(felsoResz);
+            String[] rendezett = ketRendezettTombOsszefesulese(alsoResz, felsoResz);
+            for (int i = 0; i < tomb.length; i++) {
+                tomb[i] = rendezett[i];
+            }
+        }
+        return;
+    }
+
+    private static String[] ketRendezettTombOsszefesulese(String[] alsoResz, String[] felsoResz) {
+        String[] tomb = new String[alsoResz.length + felsoResz.length];
+        int alsoReszIndex = 0;
+        int felsoReszIndex = 0;
+        int tombIndex = 0;
+        while (alsoReszIndex < alsoResz.length && felsoReszIndex < felsoResz.length) {
+            if (alsoResz[alsoReszIndex].compareTo(felsoResz[felsoReszIndex]) < 0) {
+                tomb[tombIndex] = alsoResz[alsoReszIndex];
+                tombIndex++;
+                alsoReszIndex++;
+            } else {
+                tomb[tombIndex] = felsoResz[felsoReszIndex];
+                tombIndex++;
+                felsoReszIndex++;
+            }
+        }
+        while (alsoReszIndex < alsoResz.length) {
+            tomb[tombIndex] = alsoResz[alsoReszIndex];
+            tombIndex++;
+            alsoReszIndex++;
+        }
+        while (felsoReszIndex < felsoResz.length) {
+            tomb[tombIndex] = felsoResz[felsoReszIndex];
+            tombIndex++;
+            felsoReszIndex++;
+        }
+        return tomb;
     }
 }

@@ -5,15 +5,15 @@ felhasználásával.
 
 public class Main {
     public static void main(String[] args) {
-        int[] v = {5, 1, 3, 2, 4};
+        int[] v = {1, 5, 3, 6, 4};
         sort(v);
     }
 
     private static void sort(int[] v) {
-        for (int i = 0; i < v.length - 1; i++) {
+        for (int i = 0; i < v.length - 1; ++i) {
             int max = i;
             for (int j = i + 1; j < v.length; j++) {
-                if (v[j] > v[i])
+                if (v[j] > v[max])
                     max = j;
             }
             if (max != i) {
