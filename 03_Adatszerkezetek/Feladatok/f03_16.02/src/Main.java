@@ -1,151 +1,262 @@
 public class Main {
     public static void main(String[] args) {
-        dinHalmaz halmaz1 = new dinHalmaz();
-        dinHalmaz halmaz2 = new dinHalmaz();
-        dinHalmaz halmaz3 = new dinHalmaz();
+        //halmazok statikus tömbbel
+        dinHalmazStatikusTombbel halmaz1 = new dinHalmazStatikusTombbel();
+        halmaz1.elemHozzaadasa(0);
+        halmaz1.elemHozzaadasa(1);
+        halmaz1.elemHozzaadasa(2);
+        halmaz1.elemHozzaadasa(2);
 
-        halmaz1.elemHozzaadas("1");
-        halmaz1.elemHozzaadas("2");
-        halmaz1.elemHozzaadas("3");
-        System.out.println("A halmaz1 tartalma: ");
-        halmaz1.elemekKiirasa();
+        System.out.println(halmaz1.szamossag());
 
-        System.out.println("A halmaz1 számossága: " + halmaz1.szamossaga());
-        System.out.println("A halmaz1-ben benne van-e a 2? - " + halmaz1.tartalmazzaE("2"));
-        System.out.println("A halmaz1-ből a valamikor-t sikerült-e kivenni? - " + halmaz1.elemKivetele("2"));
-        System.out.println("A halmaz1 tartalmazza-e a 2-t? - " + halmaz1.tartalmazzaE("2"));
-        System.out.println("A halmaz1 számossága: " + halmaz1.szamossaga());
+        dinHalmazStatikusTombbel halmaz2 = new dinHalmazStatikusTombbel();
+        halmaz2.elemHozzaadasa(1);
+        halmaz2.elemHozzaadasa(2);
+        halmaz2.elemHozzaadasa(3);
 
-        halmaz2.elemHozzaadas("1");
-        halmaz2.elemHozzaadas("4");
-        halmaz2.elemHozzaadas("5");
-        System.out.println("A halmaz2 tartalma: ");
-        halmaz2.elemekKiirasa();
+        dinHalmazStatikusTombbel halmaz3 = new dinHalmazStatikusTombbel();
+        halmaz3 = halmaz1.egyesites(halmaz2);
+        System.out.println("A két halmaz egyesítése: ");
+        halmaz3.halmazKiirasa();
 
-        halmaz3 = halmaz2.halmazKivonasa(halmaz1);
-        System.out.println("A halmaz3 számossága: " + halmaz3.szamossaga());
-        System.out.println("A halmaz3 tartalma: ");
-        halmaz3.elemekKiirasa();
+        halmaz3 = halmaz1.metszet(halmaz2);
+        System.out.println("A két halmaz metszete: ");
+        halmaz3.halmazKiirasa();
 
-        halmaz3.egyesites(halmaz1);
-        System.out.println("A halmaz3 számossága: " + halmaz3.szamossaga());
-        System.out.println("A halmaz3 tartalma: ");
-        halmaz3.elemekKiirasa();
+        halmaz3 = halmaz1.kivonas(halmaz2);
+        System.out.println("A két halmaz különbsége: ");
+        halmaz3.halmazKiirasa();
 
-        halmaz3.metszet(halmaz2);
-        System.out.println(halmaz3.szamossaga());
+        halmaz1.elemKivetele(1);
 
-        System.out.println(halmaz3.uresE());
-        halmaz3.urites();
-        System.out.println(halmaz3.uresE());
+        halmaz1.urites();
+        if (halmaz1.uresE())
+            System.out.println("A halmaz üres.");
 
+        //halmazok dinamikus tömbbel
+        System.out.println("Halmazok dinamikus tömbökkel.");
+        dinHalmazDinamikusTombbel halmaz1dintomb = new dinHalmazDinamikusTombbel();
+        dinHalmazDinamikusTombbel halmaz2dintomb = new dinHalmazDinamikusTombbel();
+        dinHalmazDinamikusTombbel halmaz3dintomb = new dinHalmazDinamikusTombbel();
 
+        halmaz1dintomb.elemHozzaadas(0);
+        halmaz1dintomb.elemHozzaadas(1);
+        halmaz1dintomb.elemHozzaadas(2);
+        halmaz1dintomb.elemHozzaadas(2);
+        System.out.println(halmaz1dintomb.szamossag());
+
+        halmaz2dintomb.elemHozzaadas(1);
+        halmaz2dintomb.elemHozzaadas(2);
+        halmaz2dintomb.elemHozzaadas(3);
+
+        int[] egyesites = halmaz1dintomb.egyesites(halmaz2dintomb).elemei();
+        System.out.println("A két halmaz egyesítése: ");
+        for (int i = 0; i < egyesites.length; i++) {
+            System.out.print(egyesites[i] + " ");
+        }
+        System.out.println();
+
+        int[] metszet = halmaz1dintomb.metszet(halmaz2dintomb).elemei();
+        System.out.println("A két halmaz metszete: ");
+        for (int i = 0; i < metszet.length; i++) {
+            System.out.print(metszet[i] + " ");
+        }
+        System.out.println();
+
+        int[] kulonbseg = halmaz1dintomb.kivon(halmaz2dintomb).elemei();
+        System.out.println("A két halmaz különbsége: ");
+        for (int i = 0; i < kulonbseg.length; i++) {
+            System.out.print(kulonbseg[i] + " ");
+        }
+
+        halmaz1dintomb.elemKivetele(1);
+
+        halmaz1dintomb.urites();
+        if (halmaz1dintomb.uresE())
+            System.out.println("A halmaz üres.");
     }
 }
 
-class dinHalmaz {
-    //tagvaltozok
-    private String[] taroltHalmaz;
+class dinHalmazStatikusTombbel {
+    private int[] taroltErtek;
 
-    //konstruktor
-    public dinHalmaz() {
-        taroltHalmaz = new String[0];
+    public dinHalmazStatikusTombbel() {
+        taroltErtek = new int[0];
     }
 
-    public void elemekKiirasa() {
-        for (int i = 0; i < this.taroltHalmaz.length; i++) {
-            System.out.println(this.taroltHalmaz[i]);
-        }
-    }
-
-    public boolean elemHozzaadas(String elem) {
+    public boolean elemHozzaadasa(int elem) {
         if (tartalmazzaE(elem))
             return false;
-        String[] ujTaroltHalmaz = new String[taroltHalmaz.length + 1];
-        for (int i = 0; i < taroltHalmaz.length; i++) {
-            ujTaroltHalmaz[i] = taroltHalmaz[i];
+        else {
+            int[] ujTaroltErtek = new int[this.taroltErtek.length + 1];
+            for (int i = 0; i < this.taroltErtek.length; i++) {
+                ujTaroltErtek[i] = this.taroltErtek[i];
+            }
+            ujTaroltErtek[this.taroltErtek.length] = elem;
+            this.taroltErtek = ujTaroltErtek;
+            return true;
         }
-        ujTaroltHalmaz[ujTaroltHalmaz.length - 1] = elem;
-        taroltHalmaz = ujTaroltHalmaz;
-        return true;
     }
 
-    public boolean elemKivetele(String elem) {
+    public boolean elemKivetele(int elem) {
         if (!tartalmazzaE(elem))
             return false;
-        String[] ujTaroltHalmaz = new String[taroltHalmaz.length - 1];
-        boolean megvan = false;
-        for (int i = 0; i < taroltHalmaz.length; i++) {
-            if (taroltHalmaz[i].equals(elem)) {
-                megvan = true;
-                continue;
+        else {
+            dinHalmazStatikusTombbel ujTaroltErtek = new dinHalmazStatikusTombbel();
+            for (int i = 0; i < this.taroltErtek.length; i++) {
+                if (this.taroltErtek[i] != elem)
+                    ujTaroltErtek.elemHozzaadasa(this.taroltErtek[i]);
             }
-            if (megvan)
-                ujTaroltHalmaz[i - 1] = taroltHalmaz[i];
-            else ujTaroltHalmaz[i] = taroltHalmaz[i];
+            this.taroltErtek = ujTaroltErtek.taroltErtek;
+            return true;
         }
-        taroltHalmaz = ujTaroltHalmaz;
-        return true;
     }
 
-    public int szamossaga() {
-        return taroltHalmaz.length;
+    public int szamossag() {
+        return this.taroltErtek.length;
     }
 
-    public dinHalmaz halmazKivonasa(dinHalmaz kivonandoHalmaz) {
-        dinHalmaz ujhalmaz = new dinHalmaz();
-        for (int i = 0; i < this.taroltHalmaz.length; i++) {
-            ujhalmaz.elemHozzaadas(this.taroltHalmaz[i]);
+    public dinHalmazStatikusTombbel kivonas(dinHalmazStatikusTombbel mit) {
+        dinHalmazStatikusTombbel ujTaroltErtek = new dinHalmazStatikusTombbel();
+        int index = 0;
+        while (index < this.taroltErtek.length) {
+            if (!mit.tartalmazzaE(this.taroltErtek[index]))
+                ujTaroltErtek.elemHozzaadasa(this.taroltErtek[index]);
+            index++;
         }
-        for (int i = 0; i < kivonandoHalmaz.taroltHalmaz.length; i++) {
-            ujhalmaz.elemKivetele(kivonandoHalmaz.taroltHalmaz[i]);
-        }
-        this.taroltHalmaz = ujhalmaz.taroltHalmaz;
-        return ujhalmaz;
+        return ujTaroltErtek;
     }
 
-    public dinHalmaz egyesites(dinHalmaz masikHalmaz) {
-        dinHalmaz ujhalmaz = new dinHalmaz();
-        for (int i = 0; i < this.taroltHalmaz.length; i++) {
-            ujhalmaz.elemHozzaadas(this.taroltHalmaz[i]);
+    public dinHalmazStatikusTombbel egyesites(dinHalmazStatikusTombbel mivel) {
+        dinHalmazStatikusTombbel ujTaroltErtek = new dinHalmazStatikusTombbel();
+        for (int i = 0; i < this.taroltErtek.length; i++) {
+            ujTaroltErtek.elemHozzaadasa(this.taroltErtek[i]);
         }
-        for (int i = 0; i < masikHalmaz.taroltHalmaz.length; i++) {
-            ujhalmaz.elemHozzaadas(masikHalmaz.taroltHalmaz[i]);
+        for (int i = 0; i < mivel.taroltErtek.length; i++) {
+            ujTaroltErtek.elemHozzaadasa(mivel.taroltErtek[i]);
         }
-        this.taroltHalmaz = ujhalmaz.taroltHalmaz;
-        return ujhalmaz;
+        return ujTaroltErtek;
     }
 
-    public dinHalmaz metszet(dinHalmaz masikHalmaz) {
-        dinHalmaz ujhalmaz = new dinHalmaz();
-        if (this.taroltHalmaz.length < masikHalmaz.taroltHalmaz.length)
-            for (int i = 0; i < this.taroltHalmaz.length; i++) {
-                if (masikHalmaz.tartalmazzaE(this.taroltHalmaz[i]))
-                    ujhalmaz.elemHozzaadas(this.taroltHalmaz[i]);
-            }
-        else
-            for (int i = 0; i < masikHalmaz.taroltHalmaz.length; i++) {
-                if (this.tartalmazzaE(masikHalmaz.taroltHalmaz[i]))
-                    ujhalmaz.elemHozzaadas(masikHalmaz.taroltHalmaz[i]);
-            }
-        this.taroltHalmaz = ujhalmaz.taroltHalmaz;
-        return ujhalmaz;
+    public dinHalmazStatikusTombbel metszet(dinHalmazStatikusTombbel mivel) {
+        dinHalmazStatikusTombbel ujTarolErtek = new dinHalmazStatikusTombbel();
+        for (int i = 0; i < this.taroltErtek.length; i++) {
+            if (mivel.tartalmazzaE(this.taroltErtek[i]))
+                ujTarolErtek.elemHozzaadasa(this.taroltErtek[i]);
+        }
+        return ujTarolErtek;
     }
 
     public void urites() {
-        String[] ujhalmaz = new String[0];
-        this.taroltHalmaz = ujhalmaz;
+        this.taroltErtek = new int[0];
+    }
+
+    public boolean tartalmazzaE(int elem) {
+        boolean tartalmazza = false;
+        for (int i = 0; i < this.taroltErtek.length; i++) {
+            if (this.taroltErtek[i] == elem)
+                tartalmazza = true;
+        }
+        return tartalmazza;
     }
 
     public boolean uresE() {
-        return szamossaga() == 0;
+        if (this.taroltErtek.length == 0)
+            return true;
+        else return false;
     }
 
-    public boolean tartalmazzaE(String karakterlanc) {
-        for (int i = 0; i < this.taroltHalmaz.length; i++) {
-            if (this.taroltHalmaz[i].equals(karakterlanc))
+    public void halmazKiirasa() {
+        for (int i = 0; i < this.taroltErtek.length; i++) {
+            System.out.print(this.taroltErtek[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public int adottPozicioErteke(int pozicio) {
+        return this.taroltErtek[pozicio];
+    }
+}
+
+class dinHalmazDinamikusTombbel {
+    private dinHalmazStatikusTombbel taroltErtek;
+
+    public dinHalmazDinamikusTombbel() {
+        taroltErtek = new dinHalmazStatikusTombbel();
+    }
+
+    public boolean tartalmazzaE(int elem) {
+        for (int i = 0; i < this.taroltErtek.szamossag(); i++) {
+            if (this.taroltErtek.tartalmazzaE(elem))
                 return true;
         }
         return false;
+    }
+
+    public int szamossag() {
+        return this.taroltErtek.szamossag();
+    }
+
+    public boolean elemHozzaadas(int elem) {
+        if (this.taroltErtek.tartalmazzaE(elem))
+            return false;
+        else {
+            this.taroltErtek.elemHozzaadasa(elem);
+            return true;
+        }
+    }
+
+    public boolean elemKivetele(int elem) {
+        if (!this.taroltErtek.tartalmazzaE(elem))
+            return false;
+        else {
+            this.taroltErtek.elemKivetele(elem);
+            return true;
+        }
+    }
+
+    public dinHalmazDinamikusTombbel egyesites(dinHalmazDinamikusTombbel halmaz) {
+        dinHalmazDinamikusTombbel eredmeny = new dinHalmazDinamikusTombbel();
+        for (int i = 0; i < this.taroltErtek.szamossag(); i++) {
+            eredmeny.elemHozzaadas(this.taroltErtek.adottPozicioErteke(i));
+        }
+        for (int i = 0; i < halmaz.szamossag(); i++) {
+            eredmeny.elemHozzaadas(halmaz.taroltErtek.adottPozicioErteke(i));
+        }
+        return eredmeny;
+    }
+
+    public dinHalmazDinamikusTombbel metszet(dinHalmazDinamikusTombbel halmaz) {
+        dinHalmazDinamikusTombbel eredmeny = new dinHalmazDinamikusTombbel();
+        for (int i = 0; i < this.taroltErtek.szamossag(); i++) {
+            if (halmaz.tartalmazzaE(this.taroltErtek.adottPozicioErteke(i)))
+                eredmeny.elemHozzaadas(this.taroltErtek.adottPozicioErteke(i));
+        }
+        return eredmeny;
+    }
+
+    public dinHalmazDinamikusTombbel kivon(dinHalmazDinamikusTombbel halmaz) {
+        dinHalmazDinamikusTombbel eredmeny = new dinHalmazDinamikusTombbel();
+        for (int i = 0; i < this.taroltErtek.szamossag(); i++) {
+            if (!halmaz.tartalmazzaE(this.taroltErtek.adottPozicioErteke(i)))
+                eredmeny.taroltErtek.elemHozzaadasa(this.taroltErtek.adottPozicioErteke(i));
+        }
+        return eredmeny;
+    }
+
+    public void urites() {
+        this.taroltErtek.urites();
+    }
+
+    public boolean uresE() {
+        return this.taroltErtek.uresE();
+    }
+
+    public int[] elemei() {
+        int[] elemek = new int[this.taroltErtek.szamossag()];
+        for (int i = 0; i < this.taroltErtek.szamossag(); i++) {
+            elemek[i] = this.taroltErtek.adottPozicioErteke(i);
+        }
+        return elemek;
     }
 }
