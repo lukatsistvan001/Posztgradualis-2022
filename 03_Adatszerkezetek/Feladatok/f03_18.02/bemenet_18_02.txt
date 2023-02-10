@@ -1,0 +1,12 @@
+6
+János
+Irén
+Teri
+Gyuri
+Balázs
+Kinga
+4
+János, Irén, Teri
+Gyuri, Balázs, Kinga
+János, Irén, Kinga
+Gyuri, Balázs, Teri
