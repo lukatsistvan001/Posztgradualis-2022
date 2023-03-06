@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="963f7797-3f40-4cb9-870c-e2f6c6b56618" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LubzDEMMTh8M9RtsURaZwQKhV5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.JShapeFrame">
+    <configuration name="CatchMe" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="CatchMe" />
+      <module name="f04_02_01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatWindow" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ChatWindow" />
+      <module name="f04_02_01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ColorExample" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ColorExample" />
+      <module name="f04_02_01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JShapeFrame" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="JShapeFrame" />
+      <module name="f04_02_01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MouseExample" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MouseExample" />
+      <module name="f04_02_01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyCanvas" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MyCanvas" />
+      <module name="f04_02_01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyCanvas2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MyCanvas2" />
+      <module name="f04_02_01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShapeFrame" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ShapeFrame" />
+      <module name="f04_02_01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MouseExample" />
+      <item itemvalue="Application.ChatWindow" />
+      <item itemvalue="Application.ColorExample" />
+      <item itemvalue="Application.CatchMe" />
+      <item itemvalue="Application.MyCanvas" />
+      <item itemvalue="Application.MyCanvas2" />
+      <item itemvalue="Application.ShapeFrame" />
+      <item itemvalue="Application.JShapeFrame" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="963f7797-3f40-4cb9-870c-e2f6c6b56618" name="Changes" comment="" />
+      <created>1676724176408</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676724176408</updated>
+      <workItem from="1676724178075" duration="14288000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
