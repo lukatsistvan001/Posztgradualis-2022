@@ -1,0 +1,175 @@
+Szűrési feltételek: ip.dst == 185.43.206.2 or ip.src == 185.43.206.2
+
+1. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 1
+Idő delta: 0.000000
+
+2. csomag
+Forrás: 192.168.0.1
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 64
+Idő delta: 0.001655
+
+3. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 1
+Idő delta: 0.000414
+
+4. csomag
+Forrás: 192.168.0.1
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 64
+Idő delta: 0.001652
+
+5. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 1
+Idő delta: 0.000416
+
+6. csomag
+Forrás: 192.168.0.1
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 64
+Idő delta: 0.001482
+
+7. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 2
+Idő delta: 16.603163
+
+8. csomag
+Forrás: 85.186.61.1
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 63
+Idő delta: 0.014977
+
+9. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 2
+Idő delta: 0.002929
+
+10. csomag
+Forrás: 85.186.61.1
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 63
+Idő delta: 0.013969
+
+11. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 2
+Idő delta: 0.002876
+
+12. csomag
+Forrás: 85.186.61.1
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 63
+Idő delta: 0.009008
+
+.
+.
+.
+
+70. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 13
+Idő delta: 0.987063
+
+71. csomag
+Forrás: 62.115.185.65
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 246
+Idő delta: 0.048167
+
+72. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 13
+Idő delta: 0.003202
+
+73. csomag
+Forrás: 62.115.185.65
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 246
+Idő delta: 0.045731
+
+74. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 13
+Idő delta: 0.002982
+
+75. csomag
+Forrás: 62.115.185.65
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 246
+Idő delta: 0.045001
+
+76. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 14
+Idő delta: 1.030014
+
+77. csomag
+Forrás: 185.43.206.2
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 54
+Idő delta: 0.047423
+
+78. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 14
+Idő delta: 0.003274
+
+79. csomag
+Forrás: 185.43.206.2
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 54
+Idő delta: 0.044585
+
+80. csomag
+Forrás: 192.168.0.208
+Cél: 185.43.206.2
+Protocol: ICMP
+TTL: 14
+Idő delta: 0.003304
+
+81. csomag
+Forrás: 185.43.206.2
+Cél: 192.168.0.208
+Protocol: ICMP
+TTL: 54
+Idő delta: 0.044223
+
+Elveszett csomagok a 61, 62, 63.
